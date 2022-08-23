@@ -1,17 +1,20 @@
+import { BtnForm } from 'components/ContactForm/ContactForm.styled';
 import PropTypes from 'prop-types';
+import { ContactItem } from './ContactList.styled';
+
 
 export const ContactList = ({visibleContacts, deleteContact}) => {
     return <ul>
           {visibleContacts.map(({id, name, number}) => {
-            return <li key={id}>
+            return <ContactItem key={id}>
               <span>
                 {name}:
               </span>
               <span>
                 {number}
               </span>
-              <button onClick={() => deleteContact(id)}>Удалить</button>
-            </li>
+              <BtnForm onClick={() => deleteContact(id)}>Удалить</BtnForm>
+            </ContactItem>
           })}
       </ul>
 }

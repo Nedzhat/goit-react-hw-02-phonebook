@@ -5,6 +5,7 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { nanoid } from 'nanoid';
 import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
+import { MainTitle, SecondTitle } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -57,11 +58,11 @@ export class App extends Component {
       return contact.name.toLowerCase().includes(normalizedFilter)
     })
 
-    return <Box margin="50px auto 50px" padding="30px" width="500px" height="500px" border="normal">
+    return <Box margin="50px auto 50px" padding="30px" width="500px" height="100%" border="normal" boxShadow="0px 4px 24px -1px rgba(0,0,0,0.75)" borderRadius="15px" backgroundColor="bgTable">
       <GlobalStyle/>
-      <h1>Phonebook</h1>
+      <MainTitle>Phonebook</MainTitle>
       <ContactForm onSubmit={this.addedContact}/>
-      <h2>Contacts</h2>
+      <SecondTitle>Contacts</SecondTitle>
       <Filter text="Find contacts by name" onChange={this.changeFilter} />
       <ContactList visibleContacts={visibleContacts} deleteContact={this.deleteContact}/>
     </Box>

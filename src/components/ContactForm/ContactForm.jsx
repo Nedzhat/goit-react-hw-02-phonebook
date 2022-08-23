@@ -2,9 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
 import PropTypes from 'prop-types';
+import { MainForm, BtnForm } from './ContactForm.styled';
 
-
-    
 
 const schema = yup.object().shape({
     name: yup.string().required(),
@@ -18,7 +17,7 @@ const initialValues = {
         
 export const ContactForm = ({onSubmit}) => { 
     return <Formik initialValues={initialValues} validationSchema={schema}>
-        <Form autoComplete='off' onSubmit={onSubmit}>
+        <MainForm autoComplete='off' onSubmit={onSubmit}>
           <label htmlFor='name'>Name
             <Field type="text" name="name" pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
@@ -32,8 +31,8 @@ export const ContactForm = ({onSubmit}) => {
   required/>
           </label>
             <ErrorMessage name="number" component='div'/>
-          <button type="submit">Add contact</button>
-        </Form>
+          <BtnForm type="submit">Add contact</BtnForm>
+        </MainForm>
       </Formik>
 }
 
