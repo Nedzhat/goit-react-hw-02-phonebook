@@ -1,9 +1,13 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { MainForm, BtnForm } from './ContactForm.styled';
+import { BtnForm } from './ContactForm.styled';
 
+export const MainForm = styled(Form)`
+    display: table-caption;
+    margin-bottom: ${p => p.theme.space[3]}px;
+`;
 
 const schema = yup.object().shape({
     name: yup.string().required(),
