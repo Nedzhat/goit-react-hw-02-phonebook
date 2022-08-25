@@ -19,7 +19,7 @@ const initialValues = {
         number: '',
     }    
         
-export const ContactForm = ({onSubmit}) => { 
+export const ContactForm = ({ onSubmit }) => { 
     return <Formik initialValues={initialValues} validationSchema={schema}>
         <MainForm autoComplete='off' onSubmit={onSubmit}>
           <label htmlFor='name'>Name
