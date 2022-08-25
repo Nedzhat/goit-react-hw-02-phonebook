@@ -18,10 +18,7 @@ export class App extends Component {
   filter: '',
   }
 
-  addContact = e => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const number = e.target.number.value;
+  addContact = (name, number) => {
     if (this.state.contacts.find(contact =>
       contact.name.toLowerCase() === name.toLowerCase())) {
       alert(`Sorry, but ${name} is already in contacts!`)
@@ -36,7 +33,6 @@ export class App extends Component {
     this.setState(prevState => ({
       contacts: [newContact, ...prevState.contacts],
     }));
-    e.target.reset();
   }
 
   deleteContact = contactId => {

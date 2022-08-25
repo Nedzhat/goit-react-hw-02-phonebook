@@ -18,10 +18,17 @@ const initialValues = {
         name: '',
         number: '',
     }    
-        
+
 export const ContactForm = ({ onSubmit }) => { 
+  function handleSubmit(e) {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const number = e.target.number.value;
+    onSubmit(name, number)
+    e.target.reset();
+  }
     return <Formik initialValues={initialValues} validationSchema={schema}>
-        <MainForm autoComplete='off' onSubmit={onSubmit}>
+        <MainForm autoComplete='off' onSubmit={handleSubmit}>
           <label htmlFor='name'>Name
             <Field type="text" name="name" pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
   title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
